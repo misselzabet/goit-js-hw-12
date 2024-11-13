@@ -16,6 +16,7 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -41,6 +42,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
+  width: 250px;
 }
 
 .search-form button {
@@ -70,43 +72,6 @@ body {
   border-radius: 4px;
   overflow: hidden;
   transition: transform 0.3s;
-}
-
-.photo-card:hover {
-  transform: scale(1.05);
-}
-
-.photo-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.load-more {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #28a745;
-  color: white;
-  cursor: pointer;
-}
-
-.load-more.hidden {
-  display: none;
-}
-
-.load-more:hover {
-  background-color: #218838;
-}
-.photo-card {
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.3s;
   display: flex;
   flex-direction: column;
 }
@@ -129,4 +94,39 @@ body {
 .info-item {
   margin: 5px 0;
   font-size: 14px;
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.load-more.hidden {
+  display: none;
+}
+
+.load-more:hover {
+  background-color: #218838;
+}
+
+#loader {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  font-size: 20px;
+  color: #333;
+}
+
+.hidden {
+  display: none;
 }
