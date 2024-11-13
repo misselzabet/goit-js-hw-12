@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-
-    <main>
-      <!-- Loads the specified .html file -->
-     
-    </main>
-
+    <div class="container">
+      <form id="search-form" class="search-form">
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Search images..."
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div class="gallery"></div>
+      <button class="load-more hidden">Load more</button>
+  </div>
+  
 
     <script type="module" src="./main.js"></script>
   </body>
