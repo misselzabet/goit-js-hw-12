@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-CNNbG8jS.js">
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-BhwGNnC3.css">
-  </head>
-  <body>
-    <div class="container">
-      <form id="search-form" class="search-form">
-        <input
-          type="text"
-          name="query"
-          autocomplete="off"
-          placeholder="Search images..."
-          required
-        />
-        <button type="submit">Search</button>
-      </form>
-      <div class="gallery"></div>
-      <button class="load-more hidden">Load more</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Search App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css" />
+  <script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-Qob_5Ba8.js">
+  <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/vendor-DumFYO8Z.css">
+  <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-DOEpIw4S.css">
+</head>
+<body>
+  <div class="container">
+    <form id="search-form" class="search-form">
+      <input
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Search images..."
+        required
+      />
+      <button type="submit">Search</button>
+    </form>
+    <div class="gallery"></div>
+    <div id="loader" class="hidden">Loading...</div>
+    <button class="load-more hidden">Load more</button>
   </div>
-  
-  
-
-  </body>
+</body>
 </html>
