@@ -1,3 +1,4 @@
+
 import { fetchImages } from './js/pixabay-api';
 import { renderImages, clearGallery } from './js/render-functions';
 import iziToast from 'izitoast';
@@ -8,8 +9,32 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 let lightbox = new SimpleLightbox('.gallery a');
 
 const form = document.querySelector('#search-form');
+const gallery = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('.load-more');
 const loader = document.getElementById('loader');
+
+let loadingMessageContainer;
+
+function createLoadingMessage() {
+  if (!loadingMessageContainer) {
+    loadingMessageContainer = document.createElement('p');
+    loadingMessageContainer.className = 'loading-message';
+    loadingMessageContainer.textContent = 'Loading images, please wait...';
+    gallery.parentNode.insertBefore(loadingMessageContainer, gallery);
+  }
+}
+
+function showLoadingMessage() {
+  createLoadingMessage();
+  loadingMessageContainer.style.display = 'block';
+}
+
+function hideLoadingMessage() {
+  if (loadingMessageContainer) {
+    loadingMessageContainer.style.display = 'none';
+  }
+}
+
 let currentPage = 1;
 let currentQuery = '';
 
@@ -18,10 +43,12 @@ loadMoreButton.addEventListener('click', onLoadMore);
 
 function showLoader() {
   loader.classList.remove('hidden');
+  showLoadingMessage();
 }
 
 function hideLoader() {
   loader.classList.add('hidden');
+  hideLoadingMessage();
 }
 
 async function onSearch(event) {
@@ -44,7 +71,11 @@ async function onSearch(event) {
     }
     renderImages(data.hits);
     lightbox.refresh();
-    loadMoreButton.classList.remove('hidden');
+    if (data.hits.length < 15) {
+      loadMoreButton.classList.add('hidden');
+    } else {
+      loadMoreButton.classList.remove('hidden');
+    }
   } catch (error) {
     iziToast.error({
       title: 'Error',
@@ -93,4 +124,3 @@ function smoothScroll() {
     behavior: 'smooth',
   });
 }
-
